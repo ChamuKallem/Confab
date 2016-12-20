@@ -1,0 +1,12 @@
+<section class="chat-window">
+        <h1 class="chat-window-title">{{main.chatWindowTitle}}</h1>
+</section>
+<section class="chat-room-container">
+        <ui ng-repeat="room in main.rooms">
+            {{room.$id}}
+            <li ng-repeat="message in room.messages">
+                {{message.text}}
+            </li>
+            
+        </ui> 
+</section>
