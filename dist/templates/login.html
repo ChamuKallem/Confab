@@ -1,0 +1,13 @@
+<div class="container">
+    <input ng-model="txtUserName" placeholder="User Name">
+    <input ng-model="txtEmail" type="email" placeholder="Email">
+    <input ng-model="txtPassword" type="password" placeholder="Password">
+    
+    <button ng-model="btnLogin" ng-click="login.btnLoginClick(txtEmail, txtPassword, txtUserName)" class="btn btn-action">
+        Log in
+    </button>
+    
+    <button ng-model="btnSignUp" ng-click="login.btnSignUpClick(txtEmail, txtPassword, txtUserName)"class="btn btn-secondary">
+        Sign Up
+    </button>
+</div>

@@ -1,23 +1,77 @@
-.chat-window {
-    
+body {
+  display:flex;
+  flex-direction:column;
+  color: #000;
+  font-size: 1.5em;
+  padding: 1em;
+  height: 100%;
+  text-align: center;
 }
-.chat-window {
+
+h1 {
+  padding: 20px;
+}
+
+header {
+  background-color: grey;
+}
+
+.main {
+  height:100vh;
+  display:flex;
+}
+
+article {
+    border-style: double;
+    border-radius: 2em;
+    background-color: white;
+    flex:3;
+}
+.user {
     position: relative;
-    min-height: 100px;
-    background-color: rgb(128,128,128);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    text-align: center;
+    text-align: left;
+    padding: 0.5em;
 }
-.chat-heading-bar .chat-window-title {
+.message-content {
+    position: relative;
+    text-align: left;
+    padding: 1em;
+    background-color: antiquewhite;
+}
+.message-input {
     position: absolute;
-    top: 40%;
-    width: 100%;
-    text-align: center;
-    font-size: 4rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 0.5rem;
-    text-shadow: 1px 1px 0px rgb(58,23,63);
+    bottom: 8px;
+    left: 75px;
+    font-size: 18px;
+}
+.message-input .message-input-box {
+    width: 370px;
+}
+nav {
+  background-color: pink;
+  flex:1
+}
+
+aside {
+   border-style: double;
+    border-radius: 2em;
+  text-align: inherit;
+  background-color: lightyellow;
+  flex:2;
+}
+ .rooms-list {
+   padding: 1em;
+   position: relative;
+  
+  text-align:left;
+  flex:1;
+}
+.btn-logout {
+    position: absolute;
+    bottom: 8px;
+    left: auto;
+    font-size: 18px;
+}
+footer {
+  background-color: #e1dcdd;
 }

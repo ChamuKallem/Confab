@@ -1,12 +1,50 @@
 <section class="chat-window">
-        <h1 class="chat-window-title">{{main.chatWindowTitle}}</h1>
-</section>
-<section class="chat-room-container">
-        <ui ng-repeat="room in main.rooms">
-            {{room.$id}}
-            <li ng-repeat="message in room.messages">
-                {{message.text}}
-            </li>
-            
-        </ui> 
+    <div class="main" id='main-parent'>
+        <article>
+            <h1>{{main.roomService.room.$id}}</h1>
+           
+                <ui ng-repeat="message in main.roomService.Messages">
+                    <div class="user">
+                        {{message.username}}:<br>
+                    </div>
+                    <div class="message-content">
+                        {{message.content}}
+                    </div>
+                </ui>
+                <div class="message-input" ng-show="main.roomService.roomSelected">
+                    <input class="message-input-box" type="text" ng-model="typedMessage">
+                    <!-- <button ng-click="main.roomService.send(typedMessage)">Send</button> -->
+                    <button ng-click="send()">Send</button>
+                </div>
+        </article>
+        <aside>
+            <h1>Bloc Chat</h1>
+            <div ng-controller="modalCtrl as $ctrl" class="modal-demo">
+            <button type="button" class="btn btn-default" ng-click="$ctrl.open()">New Room</button>
+            <script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Create New Room</h3>
+                </div>
+                <div class="modal-body" id="modal-body">
+                Enter a roome name:<br>
+                <input type="text" ng-model="newRoomName"><br>
+                </div>
+                <div class="modal-footer">
+                <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">Create room</button>
+                <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+                </div>
+            </script>
+            </div>
+            <div class="rooms-list">
+                <ui ng-repeat="room in main.Rooms" ng-click="main.roomService.displayRoom(room.$id)">
+                <div>
+                    {{room.$id}}<br>
+                </div>
+                </ui> 
+            </div>
+            <div class="btn-logout">
+                <button ng-click="main.roomService.logout()">Log out</button>
+            </div>
+        </aside>
+    </div>
 </section>
