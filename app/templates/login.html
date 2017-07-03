@@ -1,13 +1,29 @@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 <div class="container">
-    <input ng-model="txtUserName" placeholder="User Name">
-    <input ng-model="txtEmail" type="email" placeholder="Email">
-    <input ng-model="txtPassword" type="password" placeholder="Password">
-    
-    <button ng-model="btnLogin" ng-click="login.btnLoginClick(txtEmail, txtPassword, txtUserName)" class="btn btn-action">
-        Log in
-    </button>
-    
-    <button ng-model="btnSignUp" ng-click="login.btnSignUpClick(txtEmail, txtPassword, txtUserName)"class="btn btn-secondary">
-        Sign Up
-    </button>
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+            <h3>Welcome to Confabbing !</h3>
+            </br>
+            <input type="text" ng-model="txtUserName" class="form-control input-sm chat-input" placeholder="User Name" />
+            </br>
+            <input type="email" ng-model="txtEmail" class="form-control input-sm chat-input" placeholder="Email" />
+            </br>
+            <input type="password" ng-model="txtPassword" class="form-control input-sm chat-input" placeholder="Password" />
+            </br>
+            <div class="wrapper">
+            <span class="group-btn">
+              <button ng-model="btnLogin" ng-click="login.btnLoginClick(txtEmail, txtPassword, txtUserName)" class="btn btn-primary btn-md">
+                  Log in
+              </button>
+              <button ng-model="btnSignUp" ng-click="login.btnSignUpClick(txtEmail, txtPassword, txtUserName)" class="btn btn-primary btn-md">
+                  Sign up
+              </button>
+            </span>
+            </div>
+            </div>
+
+        </div>
+    </div>
 </div>
