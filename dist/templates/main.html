@@ -18,9 +18,12 @@
                           <div class="header">
                             <strong class="primary-font">{{message.username}}</strong>
                           </div>
-                          <p>
+                          <div class="message-content">
                             {{message.content}}
-                          </p>
+                          </div>
+                          <div class="message-time">
+                            {{message.sentAt | date: "dd MMM, hh:mma"}}
+                          </div>
                       </div>
                   </li>
                 </ul>

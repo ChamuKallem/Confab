@@ -2,18 +2,18 @@
     function roomService($firebaseArray, $state){
         var service = {};
         //Auth
-        
+
         //End Auth
         var ref = firebase.database().ref().child("rooms");
         var rooms = $firebaseArray(ref);
         var chatrooms = {
-            all: rooms 
-            };  
+            all: rooms
+            };
         service.Rooms = chatrooms.all;
-    
+
         service.addRoom = function(name, date){
         ref.child(name).set({
-                name: name, 
+                name: name,
                 createdOn: date
                 });
             }
@@ -22,7 +22,7 @@
                 if (room.$id === roomid){
                     service.room = room;
                     service.roomSelected = true;
-                    }   
+                    }
                 })
 
             var refmessages = firebase.database().ref("messages").orderByChild("roomId").equalTo(roomid);
@@ -32,22 +32,23 @@
                     };
             service.Messages = filterMessages.all;
         }
-        
+
         service.send = function(message){
             if (service.room){
                 var refmessages = firebase.database().ref("messages");
                 if (refmessages != null && message !=null ){
+                    var date = new moment().valueOf();
                     var newMessageRef = refmessages.push();
                     newMessageRef.set({
                             roomId: service.room.$id,
                             content:message,
-                            sentAt: new Date().getTime(),
+                            sentAt: date,
                             username: service.user
                         });
                     service.displayRoom(service.room.$id);
                     }
                 }
-            }  
+            }
         service.updateUserInFB = function(user){
             service.user = user
         }

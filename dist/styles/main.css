@@ -32,7 +32,16 @@
     margin: 0;
     color: #777777;
 }
-
+.message-content
+{
+  display: inline-block;
+}
+.message-time
+{
+  display: inline-block;
+  text-align: right;
+  float: right;
+}
 .panel .slidedown .glyphicon, .chat .glyphicon
 {
     margin-right: 5px;

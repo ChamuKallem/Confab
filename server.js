@@ -1,5 +1,6 @@
 var Hapi = require('hapi'),
     path = require('path'),
+    moment = require('moment'),
     port = process.env.PORT || 9000,
     server = new Hapi.Server(port),
     routes = {
