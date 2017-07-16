@@ -1,6 +1,5 @@
 (function(){
     function config($stateProvider, $locationProvider){
-        console.log("Testing app itself");
         $locationProvider
          .html5Mode({
              enabled: true,
@@ -8,15 +7,19 @@
          });
         
         $stateProvider
-         .state('main', {
+            .state('login', {
              url: '/',
-            controller: 'mainCtrl as main',
+            controller: 'userAuthCtrl as login',
+             templateUrl: '/templates/login.html'
+            })
+            .state('main', {
+             url: '/',
+            controller: 'roomCtrl as main',
              templateUrl: '/templates/main.html'
             });
-        console.log("Testing exit of app");
     }
     angular
-        .module('Bloc-Chat', ['firebase', 'ui.router'])
+        .module('Bloc-Chat', ['firebase', 'ui.bootstrap', 'ui.router'])
         .config(config);
 })();
 

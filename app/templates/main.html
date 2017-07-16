@@ -1,12 +1,76 @@
-<section class="chat-window">
-        <h1 class="chat-window-title">{{main.chatWindowTitle}}</h1>
-</section>
-<section class="chat-room-container">
-        <ui ng-repeat="room in main.rooms">
-            {{room.$id}}
-            <li ng-repeat="message in room.messages">
-                {{message.text}}
-            </li>
-            
-        </ui> 
-</section>
+<div class="container">
+  <div class="row">
+        <div class="col-md-8">
+          <div class="panel panel-primary">
+              <div class="panel-heading">
+                <div ng-if="main.roomService.room.$id !== ''">
+                  {{main.roomService.room.$id}}
+                </div>
+                <div ng-if="!main.roomService.room.$id">
+                  Select a Chat room!!!
+                </div>
+
+              </div>
+              <div class="panel-body">
+                <ul class="chat">
+                  <li ng-repeat="message in main.roomService.Messages" ng-class-odd="'odd'" ng-class-even="'even'" class="left clearfix">
+                      <div class="chat-body clearfix">
+                          <div class="header">
+                            <strong class="primary-font">{{message.username}}</strong>
+                          </div>
+                          <p>
+                            {{message.content}}
+                          </p>
+                      </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="panel-footer">
+                <div class="input-group" ng-show="main.roomService.roomSelected">
+                    <input id="btn-input" ng-model="typedMessage" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary btn-sm" ng-click="send()" id="btn-chat">
+                            Send
+                        </button>
+                    </span>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              Rooms
+            </div>
+            <div class="panel-body">
+              <ul class="rooms-list">
+                  <li ng-repeat="room in main.Rooms" ng-click="main.roomService.displayRoom(room.$id)" ng-class-odd="'odd'" ng-class-even="'even'" class="room-name">
+                      {{room.$id}}
+                </li>
+              </ul>
+            </div>
+            <div class="panel-footer">
+              <div ng-controller="modalCtrl as $ctrl" class="modal-demo footer-button" id="btn-newroom">
+                <button type="button" class="btn btn-primary" ng-click="$ctrl.open()">New Room</button>
+                <script type="text/ng-template" id="myModalContent.html">
+                    <div class="modal-header">
+                      <h3 class="modal-title" id="modal-title">Create a New Room</h3>
+                    </div>
+                    <div class="modal-body" id="modal-body">
+                    Enter a roome name:<br>
+                      <input type="text" ng-model="newRoomName"><br>
+                    </div>
+                    <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">Create room</button>
+                    <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+                    </div>
+                </script>
+              </div>
+              <div id="btn-logout" class="footer-button">
+                  <button class="btn btn-danger pull-right" ng-click="main.roomService.logout()">Log out</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

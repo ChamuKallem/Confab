@@ -1,0 +1,31 @@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 col-md-offset-3">
+            <img src="/assets/images/ConfabbAppImage2x.png" height="256px"/>
+        </div>
+        <div class="col-md-4">
+            <div class="form-login">
+            <h3>Welcome to Confabbing !</h3>
+            </br>
+            <input type="text" ng-model="txtUserName" class="form-control input-sm chat-input" placeholder="User Name" />
+            </br>
+            <input type="email" ng-model="txtEmail" class="form-control input-sm chat-input" placeholder="Email" />
+            </br>
+            <input type="password" ng-model="txtPassword" class="form-control input-sm chat-input" placeholder="Password" />
+            </br>
+            <div class="wrapper">
+            <span class="group-btn">
+              <button ng-model="btnLogin" ng-click="login.btnLoginClick(txtEmail, txtPassword, txtUserName)" class="btn btn-primary btn-md">
+                  Log in
+              </button>
+              <button ng-model="btnSignUp" ng-click="login.btnSignUpClick(txtEmail, txtPassword, txtUserName)" class="btn btn-primary btn-md">
+                  Sign up
+              </button>
+            </span>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
